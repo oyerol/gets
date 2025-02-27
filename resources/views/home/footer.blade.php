@@ -20,7 +20,7 @@
                   <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                      <h3>Contact Us</h3>
                      <ul class="conta">
-                        <li>dolor sit amet,<br> consectetur <br>magna aliqua.<br> quisdotempor <br>incididunt ut e </li>
+                        <li>ETower,<br> Level 3, <br>Shop No.....,<br> Kampala Road, <br>Kampala Uganda. </li>
                      </ul>
                   </div>
                   <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -36,7 +36,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-12">
-                        <p>© 2025 All Rights Reserved. Designed by<a href=""> Oyerol</a></p>
+                        <p>© 2025 All Rights Reserved. Designed by<a href=""> Oyerol Technologies</a></p>
                      </div>
                   </div>
                </div>

@@ -5,6 +5,28 @@
       <!-- end banner -->
 
 
+
+      <div id="about" class="about">
+    <div class="container">
+       <div class="row d_flex">
+          <div class="col-md-5">
+             <div class="titlepage">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                <a class="read_more" href="#">Read More</a>
+             </div>
+          </div>
+          <div class="col-md-7">
+             <div class="about_img">
+                <figure><img src="images/about.jpg" alt="#"/></figure>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+
       
       <!-- three_box -->
       <div class="three_box">
@@ -182,7 +204,7 @@
       <!-- end customer -->
 
       <!--  contact -->
-      <div class="contact">
+      <div id="contact" class="contact">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
@@ -191,21 +213,25 @@
                   </div>
                </div>
             </div>
+
+
+
             <div class="row">
                <div class="col-md-10 offset-md-1">
-                  <form id="request" class="main_form">
+                  <form id="request" class="main_form" action="{{ url('contactus') }}" method="POST">
+                     @csrf
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                           <input class="contactus" placeholder="Name" type="type" name="Name" required> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                           <input class="contactus" placeholder="Email" type="email" name="email" required> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                           <input class="contactus" placeholder="Phone Number" type="number" name="phone" required>                          
                         </div>
                         <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
+                           <textarea class="textarea" placeholder="Message" type="text" name="message" required>Message </textarea>
                         </div>
                         <div class="col-md-12">
                            <button class="send_btn">Send</button>
@@ -214,6 +240,8 @@
                   </form>
                </div>
             </div>
+
+
          </div>
       </div>
       <!-- end contact -->

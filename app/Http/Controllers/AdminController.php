@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\User;
+use App\Models\Contactus;
+use App\Models\Customers_view;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $user = User::where('usertype','user')->get()->count();
+        $product = Product::all()->count();
+        $order = Order::all()->count();
+        $delivered = Order::where('status','Delivered')->get()->count();
+        return view('admin.index', compact('user','product','order','delivered'));
     }
 
     public function view_category()
@@ -38,12 +47,6 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    // public function edit_category($id)
-    // {
-    //     $data = Category::find($id);
-    //     return view('admin.edit_category', compact('data'));
-    // }
-
     public function update_category(Request $request, $id)
     {
         $data = Category::find($id);
@@ -52,8 +55,11 @@ class AdminController extends Controller
 
         // toastr()->timeout(10000)->closeButton()->success('Category Updated Successfully!.');
 
-        return redirect()->route('/view_category');
+        // return redirect()->route('/view_category');
+        return redirect()->route('view_category');
+
     }
+    
 
     public function add_product()
     {
@@ -156,4 +162,108 @@ class AdminController extends Controller
 
         return redirect('/view_product');
     }
+
+    public function view_orders()
+    {
+        $data = Order::all();
+        return view('admin.order', compact('data'));
+    }
+
+    public function on_the_way($id)
+    {
+        $data = Order::find($id);
+        
+        if (!$data) {
+            toastr()->error('Order not found!');
+            return redirect('/view_orders');
+        }
+    
+        $data->status = 'On the Way';
+        $data->save();
+    
+        toastr()->timeout(10000)->closeButton()->success('Product On the Way successfully.');
+    
+        return redirect('/view_orders');
+    }
+    
+    public function delivered($id)
+    {
+        $data = Order::find($id);
+        
+        if (!$data) {
+            toastr()->error('Order not found!');
+            return redirect('/view_orders');
+        }
+    
+        $data->status = 'Delivered';
+        $data->save();
+    
+        toastr()->timeout(10000)->closeButton()->success('Product Delivered successfully.');
+    
+        return redirect('/view_orders');
+    }
+
+    public function order_delete($id)
+    {
+        
+        $data = Order::find($id);
+
+        $data->delete();
+        return redirect()->back()->with('success', 'Order deleted successfully!');
+    }
+
+    public function print_pdf($id)
+    {
+        $data = Order::find($id);
+        $pdf = Pdf::loadView('admin.invoice',compact('data'));
+        return $pdf->download('invoice.pdf');
+    }
+
+    public function showcontact()
+    {
+        $data = contactus::all();
+        return view('admin.showcontact',compact('data'));
+    }
+
+    public function delete_contactus($id)
+    {
+        
+        $contact = Contactus::find($id);
+
+        $contact->delete();
+        return redirect()->back()->with('success', 'Contact deleted successfully!');
+    }
+
+    public function customers_view()
+    {
+        $data = customers_view::all();
+        return view('admin.customers_view',compact('data'));
+    }
+
+    public function customers_viewadd(Request $request)
+    {
+
+        $data = new Customers_view;
+
+        $data->name = $request->name;
+
+        $data->description = $request->description;
+
+        $data->save();
+
+        // toastr()->timeout(10000)->closeButton()->success('Category Added Successfully!.');
+
+        return redirect()->back();
+
+    }
+
+    public function customers_viewdelete($id)
+    {
+        
+        $customer = Customers_view::find($id);
+
+        $customer->delete();
+        return redirect()->back()->with('success', 'Customer-View deleted successfully!');
+    }
+    
 }

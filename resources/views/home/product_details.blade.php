@@ -37,7 +37,7 @@
                                       <img src="/products/{{$data->image}}" height="70px"  style="object-fit: cover;"/>
                                   </div>
                                   <div class="post-text">
-                                      <a href="projects1.html">Charity giving to the people of Bulambuli Bugisu Subregion.</a>
+                                      <a href="">Charity giving to the people of Bulambuli Bugisu Subregion.</a>
                                       
                                   </div>
                               </div>
@@ -46,7 +46,7 @@
                                       <img src="img/causes-3.jpg" height="70px" style="object-fit: cover;" />
                                   </div>
                                   <div class="post-text">
-                                      <a href="project2.html">Supporting more than 5 orphans with school fees in different institutions.</a>    
+                                      <a href="">Supporting more than 5 orphans with school fees in different institutions.</a>    
                                   </div>
                               </div>
                               <div class="post-item">
@@ -54,7 +54,7 @@
                                       <img src="img/causes-4.jpg" />
                                   </div>
                                   <div class="post-text">
-                                      <a href="project3.html">Economic and Community projects to the citizens.</a>
+                                      <a href="">Economic and Community projects to the citizens.</a>
                                   </div>
                               </div>
                               <div class="post-item">
@@ -62,7 +62,7 @@
                                       <img src="img/church2.jpg" />
                                   </div>
                                   <div class="post-text">
-                                      <a href="project4.html">Worship Places in Western and Eastern Uganda.</a>
+                                      <a href="">Worship Places in Western and Eastern Uganda.</a>
                                   </div>
                               </div>
                               <div class="post-item">
@@ -70,7 +70,7 @@
                                       <img src="img/QURUBAN.jpg" />
                                   </div>
                                   <div class="post-text">
-                                      <a href="project5.html">Quruban has been provided to many mosques around the country.</a>
+                                      <a href="">Quruban has been provided to many mosques around the country.</a>
                                   </div>
                               </div>
                               <div class="post-item">
@@ -78,7 +78,7 @@
                                       <img src="img/food.jpg" />
                                   </div>
                                   <div class="post-text">
-                                      <a href="project6.html">Providing Food to the Moslems during Ramadhan.</a>
+                                      <a href="">Providing Food to the Moslems during Ramadhan.</a>
                                   </div>
                               </div>
                           </div>

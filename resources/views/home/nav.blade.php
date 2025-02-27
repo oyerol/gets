@@ -63,14 +63,14 @@
                                  <a class="nav-link" href="{{url('/')}}">Home</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="{{ url('about') }}">About</a>
+                                 <a class="nav-link" href="#about">About</a>
                               </li>
                             
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ url('product') }}">Products</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="{{ url('contact') }}">Contact Us</a>
+                                 <a class="nav-link" href="#contact">Contact Us</a>
                               </li>
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -79,7 +79,10 @@
                               @if (Route::has('login'))
 
                               @auth
-
+                               
+                              <li class="nav-item d_none">
+                                 <a class="nav-link" href="{{ url('myorders') }}">My Orders</a>
+                              </li>
 
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{ url('mycart') }}"><i class="fa fa-shopping-cart"></i>[{{ $count }}]</a>

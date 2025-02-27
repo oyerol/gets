@@ -74,13 +74,13 @@
         @foreach ($data as $data)
             <tr>
                 <td>{{$data->category_name}}</td>
-                <!-- <td>
+                {{-- <!-- <td>
                     <a class="btn btn-success" href="{{url('edit_category',$data->id)}}">Edit</a>
-                </td> -->
+                </td> --> --}}
 
                 <td>
-  <button class="btn btn-primary" onclick="showModal()">Edit</button>
-  <dialog id="my_modal_3" class="modal">
+  <button class="btn btn-primary" onclick="showModal('my_modal_{{ $data->id }}')">Edit</button>
+  <dialog id="my_modal_{{ $data->id }}" class="modal">
     <div class="modal-box">
       <form method="dialog">
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -102,6 +102,7 @@
         </div> 
     </div>
   </dialog>
+  
 </td>
 
 
@@ -122,8 +123,8 @@
 
 
 <script>
-  function showModal() {
-    const modal = document.getElementById('my_modal_3');
+  function showModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
       modal.showModal();
     } else {
